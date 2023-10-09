@@ -1,0 +1,6 @@
+logo = log --oneline
+loga = log --oneline --graph --all
+co = checkout
+amend = commit --amend
+fixup = commit --fixup
+ri = rebase --interactive --autosquash
