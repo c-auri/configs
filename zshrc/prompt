@@ -4,4 +4,4 @@ parse_git_branch() {
 
 setopt PROMPT_SUBST
 
-PROMPT='%B%F{green}%n@e2m%f: %F{cyan}%~%F{yellow}$(parse_git_branch)%b%f'$'\n''\$ '
+PROMPT='%B%F{green}%n@e2m%f: %F{cyan}%1~%F{yellow}$(parse_git_branch)%b%f'$'\n''\$ '
