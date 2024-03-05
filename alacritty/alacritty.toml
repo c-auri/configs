@@ -1,0 +1,15 @@
+import = [
+  # uncomment the flavour you want below:
+  "~/.config/alacritty/midnight.toml"
+]
+
+[window]
+#opacity = 0.9
+
+[keyboard]
+bindings = [
+  { key = "C", mods = "Control", action = "Copy" },
+  { key = "V", mods = "Control", action = "Paste" },
+  { key = "K", mods = "Control", chars = "\u0003" },
+
+]
