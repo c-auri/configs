@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+b ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -130,11 +130,6 @@ esac
 export NVM_DIR="$HOME/.nvim"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH=/usr/local/texlive/2023/bin/x86_64-linux:/usr/local/texlive/2023/bin/x86_64-linux:/usr/local/texlive/2022/bin/x86_64-linux:/home/cauri/.rbenv/shims:/home/cauri/.rbenv/bin:/home/cauri/.nvm/versions/node/v18.16.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin
-export PATH="/home/cauri/Apps/neovim/build/bin/:$PATH"
-export PATH="/home/cauri/.dotnet/tools:$PATH"
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_HTTPREPL_TELEMETRY_OPTOUT=1
