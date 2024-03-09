@@ -1,5 +1,5 @@
 logo = log --oneline
-loga = log --oneline --graph --all
+graph = log --oneline --graph --all
 co = checkout
 unstage = restore --staged
 amend = commit --amend

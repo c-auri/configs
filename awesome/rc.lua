@@ -50,9 +50,11 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/cauri/.config/awesome/theme.lua")
+gears.wallpaper.set("#000000")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
+launcher = "rofi -show run"
 editor = os.getenv("nvim") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -315,11 +317,11 @@ globalkeys = gears.table.join(
 
     -- Applications
     awful.key({ "Control" }, "Return",
-        function() awful.util.spawn("dmenu_run") end,
+        function() awful.util.spawn(launcher) end,
         {description = "run prompt", group = "awesome: launcher"}),
 
     awful.key({ "Mod1" }, "space",
-        function() awful.util.spawn("dmenu_run") end,
+        function() awful.util.spawn(launcher) end,
         {description = "run prompt", group = "awesome: launcher"}),
 
     awful.key(
@@ -413,16 +415,18 @@ root.keys(globalkeys)
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
-    { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = awful.client.focus.filter,
-                     raise = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons,
-                     screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
-     }
+    { 
+	rule = { },
+      	properties = { 
+		border_width = beautiful.border_width,
+                border_color = beautiful.border_normal,
+                focus = awful.client.focus.filter,
+                raise = true,
+                keys = clientkeys,
+                buttons = clientbuttons,
+                screen = awful.screen.preferred,
+                placement = awful.placement.no_overlap+awful.placement.no_offscreen
+     	}
     },
 
     -- Floating clients.
@@ -465,14 +469,12 @@ awful.rules.rules = {
     {
         rule_any = {
             class = {
-                "Arandr",
-                "Blueman-manager",
-                "Pavucontrol"
+		"discord"
             },
         },
         properties = {
             screen = 1,
-            tag = "5"
+            tag = "4"
         }
     }
 }
@@ -481,6 +483,9 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
+    -- add rounded corners
+    c.shape = gears.shape.rounded_rect
+
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
     if not awesome.startup then awful.client.setslave(c) end

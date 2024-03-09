@@ -6,9 +6,5 @@ run() {
     fi
 }
 
-run "feh" --bg-fill ~/Pictures/Wallpapers/Annapurna.jpg
-run "compton"
-run "arandr"
-run "blueman-manager"
-run "pavucontrol"
+run "blueman-applet"
 # run "" &
